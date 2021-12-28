@@ -2,11 +2,13 @@
 
 namespace Innocenzi\LaravelEncore\Facade;
 
+use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @method static string getLinkTags(string $entryName)
- * @method static string getScriptTags(string $entryName, bool $nodefer)
+ * @see \Innocenzi\LaravelEncore\Encore
+ * @method static Htmlable getLinkTags(string $entryName)
+ * @method static Htmlable getScriptTags(string $entryName, bool $nodefer = false)
  */
 class Encore extends Facade
 {
