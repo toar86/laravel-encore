@@ -19,12 +19,12 @@
     }
   ],
   "require": {
-    "php": "^7.4",
+    "php": "^8.0|^8.1",
     "illuminate/support": "^7.0|^8.0"
   },
   "require-dev": {
     "orchestra/testbench": "^6.2",
-    "pestphp/pest": "^0.2.4",
+    "pestphp/pest": "^1.21.1",
     "phpunit/phpunit": "^9.0"
   },
   "autoload": {
@@ -38,11 +38,14 @@
     }
   },
   "scripts": {
-    "test": ".\\vendor\\bin\\pest",
-    "coverage": ".\\vendor\\bin\\pest --coverage"
+    "test": "./vendor/bin/pest",
+    "coverage": "./vendor/bin/pest --coverage"
   },
   "config": {
-    "sort-packages": true
+    "sort-packages": true,
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
