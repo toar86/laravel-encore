@@ -2,55 +2,32 @@
 
 use Illuminate\Support\Facades\Blade;
 use Innocenzi\LaravelEncore\EncoreServiceProvider;
-use Innocenzi\LaravelEncore\Tests\TestCase;
 
-class BladeDiretivesTest extends TestCase
-{
-    protected array $directives = [];
+beforeEach(function () {
+    $this->directives = Blade::getCustomDirectives();
+});
 
-    public function setUp(): void
-    {
-        parent::setUp();
-        $this->directives = Blade::getCustomDirectives();
-    }
+it('creates directives', function () {
+    expect($this->directives)
+        ->toHaveKey(EncoreServiceProvider::SCRIPTS_BLADE_DIRECTIVE)
+        ->toHaveKey(EncoreServiceProvider::STYLES_BLADE_DIRECTIVE);
+});
 
-    /** @test **/
-    public function it_creates_directives()
-    {
-        $this->assertArrayHasKey(EncoreServiceProvider::SCRIPTS_BLADE_DIRECTIVE, $this->directives);
-        $this->assertArrayHasKey(EncoreServiceProvider::STYLES_BLADE_DIRECTIVE, $this->directives);
-    }
+it('parses script directive arguments', function () {
+    expect($this->directives[EncoreServiceProvider::SCRIPTS_BLADE_DIRECTIVE]('"scripts", false'))
+        ->toBe('<?php echo Innocenzi\LaravelEncore\Facade\Encore::getScriptTags(e("scripts"),e(false)); ?>');
 
-    /** @test **/
-    public function it_parses_script_directive_arguments()
-    {
-        $this->assertEquals(
-            '<?php echo Innocenzi\LaravelEncore\Facade\Encore::getScriptTags(e("scripts"),e(false)); ?>',
-            $this->directives[EncoreServiceProvider::SCRIPTS_BLADE_DIRECTIVE]('"scripts", false')
-        );
+    expect($this->directives[EncoreServiceProvider::SCRIPTS_BLADE_DIRECTIVE]('"scripts", true'))
+        ->toBe('<?php echo Innocenzi\LaravelEncore\Facade\Encore::getScriptTags(e("scripts"),e(true)); ?>');
 
-        $this->assertEquals(
-            '<?php echo Innocenzi\LaravelEncore\Facade\Encore::getScriptTags(e("scripts"),e(true)); ?>',
-            $this->directives[EncoreServiceProvider::SCRIPTS_BLADE_DIRECTIVE]('"scripts", true')
-        );
+    expect($this->directives[EncoreServiceProvider::SCRIPTS_BLADE_DIRECTIVE](''))
+        ->toBe('<?php echo Innocenzi\LaravelEncore\Facade\Encore::getScriptTags(e("app"),e(false)); ?>');
+});
 
-        $this->assertEquals(
-            '<?php echo Innocenzi\LaravelEncore\Facade\Encore::getScriptTags(e("app"),e(false)); ?>',
-            $this->directives[EncoreServiceProvider::SCRIPTS_BLADE_DIRECTIVE]('')
-        );
-    }
+it('parses_link_directive_arguments', function () {
+    expect($this->directives[EncoreServiceProvider::STYLES_BLADE_DIRECTIVE]('"link"'))
+        ->toBe('<?php echo Innocenzi\LaravelEncore\Facade\Encore::getLinkTags(e("link")); ?>');
 
-    /** @test **/
-    public function it_parses_link_directive_arguments()
-    {
-        $this->assertEquals(
-            '<?php echo Innocenzi\LaravelEncore\Facade\Encore::getLinkTags(e("link")); ?>',
-            $this->directives[EncoreServiceProvider::STYLES_BLADE_DIRECTIVE]('"link"')
-        );
-
-        $this->assertEquals(
-            '<?php echo Innocenzi\LaravelEncore\Facade\Encore::getLinkTags(e("app")); ?>',
-            $this->directives[EncoreServiceProvider::STYLES_BLADE_DIRECTIVE]('')
-        );
-    }
-}
+    expect($this->directives[EncoreServiceProvider::STYLES_BLADE_DIRECTIVE](''))
+        ->toBe('<?php echo Innocenzi\LaravelEncore\Facade\Encore::getLinkTags(e("app")); ?>');
+});
