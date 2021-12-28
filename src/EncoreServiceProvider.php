@@ -1,14 +1,14 @@
 <?php
 
-namespace Innocenzi\LaravelEncore;
+namespace Terpomoj\LaravelEncore;
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 class EncoreServiceProvider extends ServiceProvider
 {
-    const STYLES_BLADE_DIRECTIVE  = 'styles';
-    const SCRIPTS_BLADE_DIRECTIVE = 'scripts';
+    public const STYLES_BLADE_DIRECTIVE  = 'encoreStyles';
+    public const SCRIPTS_BLADE_DIRECTIVE = 'encoreScripts';
 
     /**
      * Bootstrap the application services.

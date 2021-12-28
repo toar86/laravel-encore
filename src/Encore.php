@@ -1,6 +1,6 @@
 <?php
 
-namespace Innocenzi\LaravelEncore;
+namespace Terpomoj\LaravelEncore;
 
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Support\Arr;

@@ -1,8 +1,8 @@
 <?php
 
-namespace Innocenzi\LaravelEncore\Tests;
+namespace Terpomoj\LaravelEncore\Tests;
 
-use Innocenzi\LaravelEncore\EncoreServiceProvider;
+use Terpomoj\LaravelEncore\EncoreServiceProvider;
 use Orchestra\Testbench\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase

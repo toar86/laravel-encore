@@ -1,5 +1,5 @@
 <?php
 
-use Innocenzi\LaravelEncore\Tests\TestCase;
+use Terpomoj\LaravelEncore\Tests\TestCase;
 
 uses(TestCase::class)->in('Unit');

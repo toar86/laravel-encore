@@ -3,8 +3,8 @@
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\HtmlString;
-use Innocenzi\LaravelEncore\Facade\Encore;
-use Innocenzi\LaravelEncore\Tests\TestCase;
+use Terpomoj\LaravelEncore\Facade\Encore;
+use Terpomoj\LaravelEncore\Tests\TestCase;
 
 it('generates script tags from entrypoints', function () {
     Config::set('encore.output_path', 'build');

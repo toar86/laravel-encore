@@ -1,5 +1,5 @@
 {
-  "name": "innocenzi/laravel-encore",
+  "name": "terpomoj/laravel-encore",
   "description": "Integrate Webpack Encore in Laravel.",
   "keywords": [
     "laravel-encore",
@@ -8,10 +8,14 @@
     "webpack encore",
     "laravel mix"
   ],
-  "homepage": "https://github.com/innocenzi/laravel-encore",
+  "homepage": "https://github.com/terpomoj/laravel-encore",
   "license": "MIT",
   "type": "library",
   "authors": [
+    {
+      "name": "BinotaLIU",
+      "email": "me@binota.org"
+    },
     {
       "name": "Enzo Innocenzi",
       "email": "enzo@innocenzi.dev",
@@ -28,12 +32,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Innocenzi\\LaravelEncore\\": "src"
+      "Terpomoj\\LaravelEncore\\": "src"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Innocenzi\\LaravelEncore\\Tests\\": "tests"
+      "Terpomoj\\LaravelEncore\\Tests\\": "tests"
     }
   },
   "scripts": {
@@ -51,10 +55,10 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Innocenzi\\LaravelEncore\\EncoreServiceProvider"
+        "Terpomoj\\LaravelEncore\\EncoreServiceProvider"
       ],
       "aliases": {
-        "Encore": "Innocenzi\\LaravelEncore\\Facade\\Encore"
+        "Encore": "Terpomoj\\LaravelEncore\\Facade\\Encore"
       }
     }
   }
