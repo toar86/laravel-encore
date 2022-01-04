@@ -97,8 +97,8 @@ In your blade components, use the `@encoreStyles` and `@encoreScripts` directive
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Laravel</title>
     <!-- Include assets -->
-    @styles
-    @scripts
+    @encoreStyles
+    @encoreScripts
   </head>
   <body>
     Hello.
@@ -118,3 +118,4 @@ If you used [static assets](https://symfony.com/doc/current/frontend/encore/copy
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+
