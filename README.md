@@ -24,7 +24,7 @@ This package helps to integrate [Webpack Encore](https://symfony.com/doc/current
 You can install the package via composer:
 
 ```bash
-composer require terpomoj/laravel-encore
+composer require toar86/laravel-encore
 ```
 
 ## Installing Encore
