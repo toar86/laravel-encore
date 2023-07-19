@@ -1,5 +1,5 @@
 {
-  "name": "terpomoj/laravel-encore",
+  "name": "toar86/laravel-encore",
   "description": "Integrate Webpack Encore in Laravel.",
   "keywords": [
     "laravel-encore",
@@ -23,7 +23,7 @@
     }
   ],
   "require": {
-    "php": "^8.0|^8.1",
+    "php": "^8.0|^8.1|^8.2",
     "illuminate/support": "^7.0|^8.0|^9.0|^10.0"
   },
   "require-dev": {
