@@ -8,6 +8,8 @@ use Illuminate\Support\HtmlString;
 
 class Encore
 {
+    protected $css = [];
+    protected $js = [];
     /**
      * Reads a JSON file.
      */
@@ -50,7 +52,11 @@ class Encore
     public function getLinkTags(string $entryName): ?Htmlable
     {
         return $this->getEntries($entryName, 'css', function (string $link) {
-            return sprintf('<link rel="stylesheet" href="%s"/>', $link);
+            if (!in_array($link, $this->css)) {
+                $this->css[] = $link;
+                return sprintf('<link rel="stylesheet" href="%s"/>', $link);
+            } 
+            return '';
         });
     }
 
@@ -60,7 +66,11 @@ class Encore
     public function getScriptTags(string $entryName, bool $noDefer = false): ?Htmlable
     {
         return $this->getEntries($entryName, 'js', function (string $link) use ($noDefer) {
-            return sprintf('<script src="%s" %s></script>', $link, $noDefer ?: 'defer');
+            if (!in_array($link, $this->js)) {
+                $this->js[] = $link;
+                return sprintf('<script src="%s" %s></script>', $link, $noDefer ?: 'defer');
+            } 
+            return '';
         });
     }
 
